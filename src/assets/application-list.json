@@ -1,0 +1,78 @@
+{
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://localhost:8080/reporting/app"
+      }
+    ],
+    "content": [
+      {
+        "id": 1,
+        "name": "GMAIL",
+        "environment": "QA",
+        "applicationUrl": "www.google.com",
+        "executions": [],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/reporting/app/1"
+          },
+          {
+            "rel": "applications",
+            "href": "http://localhost:8080/reporting/app"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "PHOTOS",
+        "environment": "QA",
+        "applicationUrl": "www.google.com",
+        "executions": [],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/reporting/app/2"
+          },
+          {
+            "rel": "applications",
+            "href": "http://localhost:8080/reporting/app"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "DRIVE",
+        "environment": "QA",
+        "applicationUrl": "www.google.com",
+        "executions": [],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/reporting/app/3"
+          },
+          {
+            "rel": "applications",
+            "href": "http://localhost:8080/reporting/app"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "YOUTUBE",
+        "environment": "QA",
+        "applicationUrl": "www.google.com",
+        "executions": [],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/reporting/app/4"
+          },
+          {
+            "rel": "applications",
+            "href": "http://localhost:8080/reporting/app"
+          }
+        ]
+      }
+    ]
+  }
