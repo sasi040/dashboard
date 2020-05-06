@@ -1,11 +1,4 @@
-{
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://localhost:8080/reporting/app"
-      }
-    ],
-    "content": [
+[
       {
         "id": 1,
         "name": "GMAIL",
@@ -75,4 +68,3 @@
         ]
       }
     ]
-  }

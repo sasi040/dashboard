@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators'
 })
 export class ApplicationListComponent implements OnInit {
 
-  applications;
+  applications: Application[];
 
   constructor(private appListService: ApplicationListService) { }
 
@@ -19,5 +19,17 @@ export class ApplicationListComponent implements OnInit {
       this.applications = apps;
     })
   }
+}
 
+export interface Application {
+  id: number;
+  name: string,
+  environment: string,
+  applicationUrl: string,
+  links: Array<Link>
+}
+
+export interface Link {
+  rel: string,
+  href: string
 }
