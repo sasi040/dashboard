@@ -1,1 +1,14 @@
-<p>application-details works!</p>
+<div *ngIf="appDetails">
+<h1>Application Details</h1>
+<br>
+<div class="row">
+    <span class="col">{{appDetails.name}}</span>
+    <span class="col">{{appDetails.applicationUrl}}</span>
+    <span class="col">{{appDetails.environment}}</span>
+</div>
+
+<h3>Current Execution:</h3>
+<div class="row">
+    <span>{{appDetails.latestExecution.name}}</span>
+</div>
+</div>
