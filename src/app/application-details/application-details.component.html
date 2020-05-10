@@ -1,14 +1,95 @@
 <div *ngIf="appDetails">
-<h1>Application Details</h1>
-<br>
 <div class="row">
-    <span class="col">{{appDetails.name}}</span>
-    <span class="col">{{appDetails.applicationUrl}}</span>
-    <span class="col">{{appDetails.environment}}</span>
-</div>
-
+    <span class="col">
+        <label>Name :</label> {{appDetails.name}} </span>
+    <span class="col">
+        <label>Environment :</label> {{appDetails.environment}} </span>
+    <span class="col">
+        <label>Url :</label> {{appDetails.applicationUrl}} </span>
+    </div>
+<hr>
 <h3>Current Execution:</h3>
+
 <div class="row">
-    <span>{{appDetails.latestExecution.name}}</span>
+    <span class ="col">
+        <label>Name: </label>
+    </span>
+    <span class="col">{{appDetails.latestExecution.name}}</span>
+    <span class ="col">
+        <label>Environment: </label>
+    </span>
+    <span class="col">{{appDetails.latestExecution.environment}}</span>
+    <span class ="col">
+        <label>OS: </label>
+    </span>
+    <span class="col">{{appDetails.latestExecution.operatingSystem}}</span>
+    <span class ="col">
+        <label>System : </label>
+    </span>
+    <span class="col">{{appDetails.latestExecution.systemName}}</span>
+        <!-- <label>Environment: </label>{{appDetails.latestExecution.environment}}
+        <label>Browser: </label>{{appDetails.latestExecution.browserType}}
+    </span>
+    <span class ="col">{{appDetails.latestExecution.operatingSystem}}</span>
+    <span class ="col">{{appDetails.latestExecution.systemName}}</span>
+    <span class ="col">{{appDetails.latestExecution.executedBy}}</span>
+    <span class ="col">{{appDetails.latestExecution.startTime | date }}</span>
+    <span class ="col">{{appDetails.latestExecution.status }}</span> -->
+
+</div>
+<div class="row">
+<div class="col">
+    <caption>Test Suites</caption>
+<div class="progress">
+    <div class="progress-bar bg-info" role="progressbar" style="width: 100%" >
+        Total: {{appDetails.latestExecution.totalSuites}}
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" >
+        Finished : {{appDetails.latestExecution.finishedSuites}}
+    </div>
+  </div>
+</div>
+<div class="col">
+    <caption>Test Cases</caption>
+    <div class="progress progress-bar-vertical">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 100%" >
+            Total: {{appDetails.latestExecution.totalCases}}
+        </div>
+      </div>
+      <div class="progress progress-bar-vertical">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" >
+            Executed : {{appDetails.latestExecution.executedCases}}
+        </div>
+      </div>
+    <div class="progress progress-bar-vertical">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" >
+                Failed : {{appDetails.latestExecution.failedCases}}
+            </div>
+      </div>
+    </div>
+</div>
+<p>
+    {{appDetails.latestExecution.totalCases}}
+</p>
+<h3>Executions History:</h3>
+<div *ngFor="let exec of appDetails.executions">
+    <div class="row">
+        <span class ="col">{{exec.id}}</span>
+        <span class ="col">{{exec.name}}</span>
+        <span class ="col">{{exec.environment}}</span>
+        <span class ="col">{{exec.browserType}}</span>
+        <span class ="col">{{exec.operatingSystem}}</span>
+        <span class ="col">{{exec.systemName}}</span>
+        <span class ="col">{{exec.executedBy}}</span>
+        <span class ="col">{{exec.startTime | date }}</span>
+        <span class ="col">{{exec.endTime | date }}</span>
+        <span class ="col">{{exec.status }}</span>
+    
+    </div>
 </div>
 </div>
+<button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+
+

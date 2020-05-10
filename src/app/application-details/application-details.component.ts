@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationListService } from '../application-list.service';
-import { ApplicationDetailService } from '../application-detail.service';
 import { ApplicationDetails } from '../interfaces/applicationDetails';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-application-details',
@@ -15,7 +15,7 @@ export class ApplicationDetailsComponent implements OnInit {
   appDetails: ApplicationDetails;
 
   constructor(private route: ActivatedRoute, private appService: ApplicationListService,
-              private appDetailService: ApplicationDetailService ) { }
+              private location: Location ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -26,4 +26,10 @@ export class ApplicationDetailsComponent implements OnInit {
         this.appDetails = o;
       });
   }
+
+  public goBack() {
+    this.location.back();
+  }
+
+  
 }

@@ -15,7 +15,14 @@ export class ApplicationListComponent implements OnInit {
   constructor(private appListService: ApplicationListService) { }
 
   ngOnInit(): void {
-    this.appListService.getApplications1()
-     .subscribe(apps => this.applications = apps);
+    this.appListService.getApplications()
+     .subscribe(apps => {
+       this.applications = apps;
+       this.appListService.setApplications(apps);
+       this.applications.forEach(app => {
+        app.self = app.links.find(link => link.rel === 'self').rel;
+      });
+     });
+     
   }
 }

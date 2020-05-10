@@ -1,6 +1,22 @@
-<div class="row" *ngFor="let app of applications">
-<div class="col"> <a [title] ="app.name +'details'" [routerLink]="['/application',app.id]">{{app.id}}</a></div>
-<div class="col">{{app.name}}</div>
-<div class="col">{{app.environment}}</div>
-<div class="col">{{app.applicationUrl}}</div>
+<h2><caption>Applications</caption></h2>
+<div class="table-responsive">   
+<table class="table table-striped table-dark ">
+    <caption>List of Applications</caption>
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Environment</th>
+        <th scope="col">Application URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of applications" style="text-align: center;">
+        <td scope="row"><a [title] ="app.name +'details'" [routerLink]="['/application',app.id]">{{app.id}}</a></td>
+        <td >{{app.name}}</td>
+        <td >{{app.environment}}</td>
+        <td >{{app.applicationUrl}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

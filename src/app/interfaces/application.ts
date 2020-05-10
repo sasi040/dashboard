@@ -2,8 +2,9 @@ import { Link } from './link';
 
 export interface Application {
     id: number;
-    name: string,
-    environment: string,
-    applicationUrl: string,
+    name: String,
+    environment: String,
+    applicationUrl: String,
+    self: String,
     links: Array<Link>
   }
