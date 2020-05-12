@@ -38,57 +38,86 @@
 
 </div>
 <div class="row">
-<div class="col">
-    <caption>Test Suites</caption>
-<div class="progress">
-    <div class="progress-bar bg-info" role="progressbar" style="width: 100%" >
-        Total: {{appDetails.latestExecution.totalSuites}}
-    </div>
-  </div>
-  <div class="progress">
-    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" >
-        Finished : {{appDetails.latestExecution.finishedSuites}}
-    </div>
-  </div>
+<div class="col-4">
+<table class="table table-borderless">
+    <tbody>
+        <tr>
+            <th colspan="4" style="text-align: center;">Test suites</th>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Total</td>
+            <td>:</td>
+            <td><span class="p-2 btn-info">{{appDetails.latestExecution.totalSuites}}</span></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Finished</td>
+            <td>:</td>
+            <td><span class="p-2 btn-success">{{appDetails.latestExecution.finishedSuites}}</span></td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
 </div>
-<div class="col">
-    <caption>Test Cases</caption>
-    <div class="progress progress-bar-vertical">
-        <div class="progress-bar bg-info" role="progressbar" style="width: 100%" >
-            Total: {{appDetails.latestExecution.totalCases}}
-        </div>
-      </div>
-      <div class="progress progress-bar-vertical">
-        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" >
-            Executed : {{appDetails.latestExecution.executedCases}}
-        </div>
-      </div>
-    <div class="progress progress-bar-vertical">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" >
-                Failed : {{appDetails.latestExecution.failedCases}}
-            </div>
-      </div>
-    </div>
+<div class="col-4">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th colspan="3" style="text-align: center;">Test Cases</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Total</td>
+                <td>:</td>
+                <td><span class="p-2 btn-info">{{appDetails.latestExecution.totalCases}}</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Finished</td>
+                <td>:</td>
+                <td><span class="p-2 btn-success">{{appDetails.latestExecution.executedCases}}</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Failed</td>
+                <td>:</td>
+                <td><span class="p-2 btn-danger">{{appDetails.latestExecution.failedCases}}</span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-<p>
-    {{appDetails.latestExecution.totalCases}}
-</p>
+<div class="col-4">
+    &nbsp;
+</div>
+
+</div>
+ 
+<hr>
 <h3>Executions History:</h3>
-<div *ngFor="let exec of appDetails.executions">
-    <div class="row">
-        <span class ="col">{{exec.id}}</span>
-        <span class ="col">{{exec.name}}</span>
-        <span class ="col">{{exec.environment}}</span>
-        <span class ="col">{{exec.browserType}}</span>
-        <span class ="col">{{exec.operatingSystem}}</span>
-        <span class ="col">{{exec.systemName}}</span>
-        <span class ="col">{{exec.executedBy}}</span>
-        <span class ="col">{{exec.startTime | date }}</span>
-        <span class ="col">{{exec.endTime | date }}</span>
-        <span class ="col">{{exec.status }}</span>
-    
-    </div>
-</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Environment</th>
+            <th scope="col">BrowserType</th>
+            <th scope="col">Operating System</th><th scope="col">System Name</th>
+            <th scope="col">Executed By</th><th scope="col">Start Time</th>
+            <th scope="col">End Time</th><th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let exec of appDetails.executions">
+            <th scope="row">{{exec.id}}</th>
+            <td>{{exec.name}}</td>
+            <td>{{exec.environment}}</td>
+            <td>{{exec.browserType}}</td>
+            <td>{{exec.operatingSystem}}</td>
+            <td>{{exec.systemName}}</td>
+            <td>{{exec.executedBy}}</td>
+            <td>{{exec.startTime | date }}</td>
+            <td>{{exec.endTime | date }}</td>
+            <td>{{exec.status}}</td>
+        </tr>
+    </tbody>
+</table>
 </div>
 <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
 
