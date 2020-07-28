@@ -6,14 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApplicationListComponent } from './application-list/application-list.component';
 import { ApplicationDetailsComponent } from './application-details/application-details.component';
-import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplicationListComponent,
-    ApplicationDetailsComponent,
-    HighchartsChartModule
+    ApplicationDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,4 @@ import * as Highcharts from 'highcharts';
 })
 export class AppComponent {
   title = 'Dashboard';
-  highCharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
-    series: [{
-      data: [1, 2, 3],
-      type: 'line'
-    }]
-  }
-  
 }
