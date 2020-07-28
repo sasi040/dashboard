@@ -14,8 +14,7 @@ export class ApplicationDetailsComponent implements OnInit {
   appId: number;
   appDetails: ApplicationDetails;
 
-  constructor(private route: ActivatedRoute, private appService: ApplicationListService,
-              private location: Location ) { }
+  constructor(private route: ActivatedRoute, private appService: ApplicationListService, private location: Location) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -30,6 +29,4 @@ export class ApplicationDetailsComponent implements OnInit {
   public goBack() {
     this.location.back();
   }
-
-  
 }
