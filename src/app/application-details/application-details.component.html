@@ -1,98 +1,74 @@
-<div *ngIf="appDetails">
-<div class="row">
-    <span class="col">
-        <label>Name :</label> {{appDetails.name}} </span>
-    <span class="col">
-        <label>Environment :</label> {{appDetails.environment}} </span>
-    <span class="col">
-        <label>Url :</label> {{appDetails.applicationUrl}} </span>
-    </div>
+<span><h4>Ongoing Execution:</h4></span>
 <hr>
-<h3>Current Execution:</h3>
-
-<div class="row">
-    <span class ="col">
-        <label>Name: </label>
-    </span>
-    <span class="col">{{appDetails.latestExecution.name}}</span>
-    <span class ="col">
-        <label>Environment: </label>
-    </span>
-    <span class="col">{{appDetails.latestExecution.environment}}</span>
-    <span class ="col">
-        <label>OS: </label>
-    </span>
-    <span class="col">{{appDetails.latestExecution.operatingSystem}}</span>
-    <span class ="col">
-        <label>System : </label>
-    </span>
-    <span class="col">{{appDetails.latestExecution.systemName}}</span>
-        <!-- <label>Environment: </label>{{appDetails.latestExecution.environment}}
-        <label>Browser: </label>{{appDetails.latestExecution.browserType}}
-    </span>
-    <span class ="col">{{appDetails.latestExecution.operatingSystem}}</span>
-    <span class ="col">{{appDetails.latestExecution.systemName}}</span>
-    <span class ="col">{{appDetails.latestExecution.executedBy}}</span>
-    <span class ="col">{{appDetails.latestExecution.startTime | date }}</span>
-    <span class ="col">{{appDetails.latestExecution.status }}</span> -->
-
-</div>
-<div class="row">
-<div class="col-4">
-<table class="table table-borderless">
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Application</th>
+            <th scope="col">Environment</th>
+            <th scope="col">Browser</th>
+            <th scope="col">Operating System</th>
+            <!-- <th scope="col">System Name</th> -->
+            <!-- <th scope="col">Executed By</th> -->
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
     <tbody>
         <tr>
-            <th colspan="4" style="text-align: center;">Test suites</th>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Total</td>
-            <td>:</td>
-            <td><span class="p-2 btn-info">{{appDetails.latestExecution.totalSuites}}</span></td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Finished</td>
-            <td>:</td>
-            <td><span class="p-2 btn-success">{{appDetails.latestExecution.finishedSuites}}</span></td>
-            <td>&nbsp;</td>
+            <td>{{selectedExecution.name}}</td>
+            <td>{{selectedExecution.applicationName}}</td>
+            <td>{{selectedExecution.environmentName}}</td>
+            <td>{{selectedExecution.browser}}</td>
+            <td>{{selectedExecution.operatingSystem}}</td>
+            <!-- <td>{{selectedExecution.systemName}}</td> -->
+            <!-- <td>{{selectedExecution.executedBy}}</td> -->
+            <td>{{selectedExecution.startTime | date }}</td>
+            <td>{{selectedExecution.endTime | date }}</td>
+            <td>status</td>
         </tr>
     </tbody>
 </table>
+<div class="row">
+    <div class="col-12">
+        <u>Test Cases</u>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-primary">
+            <span class="badge badge-primary">Targeted: {{selectedExecution.targeted}}</span>
+          </button>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-info">
+            <span class="badge badge-info">Executed: {{selectedExecution.executed}}</span>
+          </button>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-success">
+            <span class="badge badge-success">Passed: {{selectedExecution.passed}}</span>
+          </button>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-danger">
+            <span class="badge badge-danger">Failed: {{selectedExecution.failed}}</span>
+        </button>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-info">
+            <span class="badge badge-info">Skipped: {{selectedExecution.skipped}}</span>
+        </button>
+    </div>
+    <div class="col-sm-4 m-sm-3">
+        <button type="button" class="btn btn-primary">
+            <span class="badge badge-primary">InProgress: {{selectedExecution.inProgress}}</span>
+        </button>
+    </div>
 </div>
-<div class="col-4">
-    <table class="table table-borderless">
-        <tbody>
-            <tr>
-                <th colspan="3" style="text-align: center;">Test Cases</th>
-            </tr>
-            <tr>
-                <td style="text-align: center;">Total</td>
-                <td>:</td>
-                <td><span class="p-2 btn-info">{{appDetails.latestExecution.totalCases}}</span></td>
-            </tr>
-            <tr>
-                <td style="text-align: center;">Finished</td>
-                <td>:</td>
-                <td><span class="p-2 btn-success">{{appDetails.latestExecution.executedCases}}</span></td>
-            </tr>
-            <tr>
-                <td style="text-align: center;">Failed</td>
-                <td>:</td>
-                <td><span class="p-2 btn-danger">{{appDetails.latestExecution.failedCases}}</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="col-4">
-    &nbsp;
-</div>
-
-</div>
- 
 <hr>
-<h3>Executions History:</h3>
+<h4>Executions History:</h4>
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead-light rounded-sm">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -104,21 +80,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let exec of appDetails.executions">
+        <tr *ngFor="let exec of executions">
             <th scope="row">{{exec.id}}</th>
-            <td>{{exec.name}}</td>
-            <td>{{exec.environment}}</td>
-            <td>{{exec.browserType}}</td>
+            <td>{{exec.applicationName}}</td>
+            <td>{{exec.environmentName}}</td>
+            <td>{{exec.browser}}</td>
             <td>{{exec.operatingSystem}}</td>
             <td>{{exec.systemName}}</td>
             <td>{{exec.executedBy}}</td>
             <td>{{exec.startTime | date }}</td>
             <td>{{exec.endTime | date }}</td>
-            <td>{{exec.status}}</td>
+            <td> status </td>
         </tr>
     </tbody>
 </table>
-</div>
 <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
 
 

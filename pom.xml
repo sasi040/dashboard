@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.ekahyukti</groupId>
+    <artifactId>dashboard</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>Dashboard-frontend</name>
+    <description>Test Automation Reporting Tool</description>
+
+    <properties>
+        <frontend-plugin.version>1.9.1</frontend-plugin.version>
+    </properties>
+    <build>
+        <plugins>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>${frontend-plugin.version}</version>
+        <configuration>
+          <workingDirectory>${basedir}</workingDirectory>
+        </configuration>
+        <executions>
+        <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+              <nodeVersion>v12.16.3</nodeVersion>
+              <npmVersion>6.14.5</npmVersion>
+            </configuration>
+          </execution>
+            <execution>
+            <id>npm run build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+        </plugin>
+        <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+            <!-- Add frontend folder to war package -->
+            <webResources>
+                <resource>
+                    <directory>${basedir}/dist/dashboard</directory>
+                </resource>
+            </webResources>
+        </configuration>
+    </plugin>
+        </plugins>
+    </build>
+    </project>

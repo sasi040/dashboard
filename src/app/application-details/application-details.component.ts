@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ApplicationListService } from '../application-list.service';
 import { ApplicationDetails } from '../interfaces/applicationDetails';
 import { Location } from '@angular/common';
+import { TestExecutionService } from '../testExecution.service';
+import { TestExecution } from '../interfaces/testExecution';
 
 @Component({
   selector: 'app-application-details',
@@ -12,18 +14,22 @@ import { Location } from '@angular/common';
 export class ApplicationDetailsComponent implements OnInit {
 
   appId: number;
-  appDetails: ApplicationDetails;
+  executions: TestExecution[];
+  selectedExecution: TestExecution;
 
-  constructor(private route: ActivatedRoute, private appService: ApplicationListService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private executionService: TestExecutionService, private location: Location) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.appId = +params.get('appId');
     });
-    this.appService.getApplicationDetails(this.appId)
-      .subscribe(o => {
-        this.appDetails = o;
-      });
+    this.executionService.getTestExecutionsByApplication(this.appId,'response')
+    .subscribe(res => {
+      if (res.status === 200) {
+        this.executions = res.body;
+        this.selectedExecution = this.executions[0];
+      }
+    })
   }
 
   public goBack() {
