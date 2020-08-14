@@ -1,1 +1,29 @@
-<p>test-case works!</p>
+<div class="table-responsive">   
+    <table class="table">
+      <caption>TestCases</caption>
+      <thead class="thead-light">
+        <tr style="text-align: center;">
+          <th scope="col">#</th>
+          <th scope="col">Suite Name</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+          <th scope="col">Total Steps</th>
+          <th scope="col">Passed steps</th>
+          <th scope="col">Failed Steps</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of testCases" style="text-align: center;">
+          <td scope="row"><a [title] ="c.name +'details'" [routerLink]="['/testCase',c.id]">{{c.id}}</a></td>
+          <td >{{c.testSuiteName}}</td>
+          <td >{{c.executionStartTime}}</td>
+          <td >{{c.executionEndTime}}</td>
+          <td >{{c.totalTestSteps}}</td>
+          <td >{{c.passedTestStepsCount}}</td>
+          <td >{{c.failedTestStepsCount}}</td>
+          <td >{{c.executionStatusValue}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

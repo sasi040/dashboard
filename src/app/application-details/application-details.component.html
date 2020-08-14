@@ -1,3 +1,4 @@
+<div *ngIf="selectedExecution">
 <span><h4>Ongoing Execution:</h4></span>
 <hr>
 <table class="table">
@@ -30,40 +31,44 @@
         </tr>
     </tbody>
 </table>
+
 <div class="row">
     <div class="col-12">
         <u>Test Cases</u>
     </div>
     <div class="col-sm-4 m-sm-3">
         <button type="button" class="btn btn-primary">
-            <span class="badge badge-primary">Targeted: {{selectedExecution.targeted}}</span>
+            Targeted: {{selectedExecution.targeted}}
           </button>
     </div>
     <div class="col-sm-4 m-sm-3">
         <button type="button" class="btn btn-info">
-            <span class="badge badge-info">Executed: {{selectedExecution.executed}}</span>
+            Executed: {{selectedExecution.executed}}
           </button>
     </div>
     <div class="col-sm-4 m-sm-3">
         <button type="button" class="btn btn-success">
-            <span class="badge badge-success">Passed: {{selectedExecution.passed}}</span>
+            Passed: {{selectedExecution.passed}}
           </button>
     </div>
     <div class="col-sm-4 m-sm-3">
+        <a  [routerLink]="['/execution',selectedExecution.id,'FAILED']">
         <button type="button" class="btn btn-danger">
-            <span class="badge badge-danger">Failed: {{selectedExecution.failed}}</span>
+            Failed: {{selectedExecution.failed}}
         </button>
+    </a>
     </div>
     <div class="col-sm-4 m-sm-3">
         <button type="button" class="btn btn-info">
-            <span class="badge badge-info">Skipped: {{selectedExecution.skipped}}</span>
+            Skipped: {{selectedExecution.skipped}}
         </button>
     </div>
     <div class="col-sm-4 m-sm-3">
         <button type="button" class="btn btn-primary">
-            <span class="badge badge-primary">InProgress: {{selectedExecution.inProgress}}</span>
+            InProgress: {{selectedExecution.inProgress}}
         </button>
     </div>
+</div>
 </div>
 <hr>
 <h4>Executions History:</h4>

@@ -22,29 +22,6 @@
   <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#applicationModal">Create Application</button>
 </div>
 </div>
-<!-- <div *ngIf="displayApplicationForm">
-  <hr/>
-  <form [formGroup]="applicationForm" (ngSubmit)="onSubmitApplicationForm(applicationForm.value)">
-
-    <div>
-      <label for="name">
-        Name
-      </label>
-      <input id="name" type="text" formControlName="name">
-    </div>
-  
-    <div>
-      <label for="description">
-        Description
-      </label>
-      <input id="description" type="text" formControlName="description">
-    </div>
-  
-    <button class="button" class="btn btn-primary" type="submit">Submit</button>
-    <button class="button" class="btn btn-info" (click)="toggleApplicationForm()">Cancel</button>
-  
-  </form>
-</div> -->
 <div *ngIf="ackUserAction">
   <p class="text-primary">Application created successfully!</p>
 </div>
